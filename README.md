@@ -7,6 +7,17 @@ This project is a starting point for a Flutter application.
 
 ### how to use
 
+💻 添加依赖
+ 在 pubspec.yaml中添加:
+ 
+  ````
+    frame_animate_widget: ^1.0.0
+
+  ````
+  然后使用即可. 
+  ````
+  FrameAnimationImage();
+  ````
 #### 渲染widget后直接播放
 
   ````
