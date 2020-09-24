@@ -1,6 +1,6 @@
 name: frame_animate_widget
-description: A new Flutter package.
-version: 1.0.0
+description: frame animation.
+version: 1.0.1
 author: rd
 homepage: https://github.com/rd-wang/flutter_frame_animate_widget
 

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:frame_animate_widget/frame_animate_widget.dart';
 
 class Frame extends StatelessWidget {
-
   bool b = false;
   final List<String> list = [
     'images/shiyin1_004.png',
@@ -36,14 +35,13 @@ class Frame extends StatelessWidget {
           child: GestureDetector(
             onTap: () {
               if (b) {
-                _key.currentState.reStartAnimation();
+                _key.currentState.reset();
               } else {
-                _key.currentState.startAnimation();
+                _key.currentState.start();
               }
               b = !b;
             },
-            child: FrameAnimationImage(_key, list,
-                width: 220, height: 200, interval: 50, start: false),
+            child: FrameAnimationImage(_key, list, width: 220, height: 200, interval: 50, start: false),
           ),
         ));
   }

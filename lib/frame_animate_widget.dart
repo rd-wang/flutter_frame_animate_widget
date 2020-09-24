@@ -9,9 +9,7 @@ class FrameAnimationImage extends StatefulWidget {
   bool start = true;
   int interval = 200;
 
-  FrameAnimationImage(Key key, this._assetList,
-      {this.width, this.height, this.interval, this.start})
-      : super(key: key);
+  FrameAnimationImage(Key key, this._assetList, {this.width, this.height, this.interval, this.start}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
@@ -19,8 +17,7 @@ class FrameAnimationImage extends StatefulWidget {
   }
 }
 
-class FrameAnimationImageState extends State<FrameAnimationImage>
-    with SingleTickerProviderStateMixin {
+class FrameAnimationImageState extends State<FrameAnimationImage> with SingleTickerProviderStateMixin {
   // 动画控制
   Animation<double> _animation;
   AnimationController _controller;
@@ -37,16 +34,14 @@ class FrameAnimationImageState extends State<FrameAnimationImage>
     final int maxTime = interval * imageCount;
 
     // 启动动画controller
-    _controller = new AnimationController(
-        duration: Duration(milliseconds: maxTime), vsync: this);
+    _controller = new AnimationController(duration: Duration(milliseconds: maxTime), vsync: this);
     _controller.addStatusListener((AnimationStatus status) {
       if (status == AnimationStatus.completed) {
         _controller.forward(from: 0.0); // 完成后重新开始
       }
     });
 
-    _animation = new Tween<double>(begin: 0, end: imageCount.toDouble())
-        .animate(_controller)
+    _animation = new Tween<double>(begin: 0, end: imageCount.toDouble()).animate(_controller)
       ..addListener(() {
         setState(() {
           // the state that has changed here is the animation object’s value
@@ -57,9 +52,10 @@ class FrameAnimationImageState extends State<FrameAnimationImage>
     }
   }
 
-  void startAnimation() => _controller.forward();
-  void stopAnimation() => _controller.stop();
-  void reStartAnimation(){
+  void start() => _controller.forward();
+  void stop() => _controller.stop();
+  void reset() => _controller.reset();
+  void reStart() {
     _controller.reset();
     _controller.forward();
   }
@@ -105,4 +101,3 @@ class FrameAnimationImageState extends State<FrameAnimationImage>
     return Stack(alignment: AlignmentDirectional.center, children: images);
   }
 }
-
